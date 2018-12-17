@@ -5,10 +5,10 @@ from matplotlib import pyplot as plt
 def proccess_image(image_path):
     img = cv2.imread(image_path,0)
     img2 = img.copy()
-    calling_template = cv2.imread('image_src/calling_template.jpg',0)
-    ringing_template = cv2.imread('image_src/ringing_template.jpg',0)
+    calling_template = cv2.imread('image_src/new_template2.jpg',0)
+    ringing_template = cv2.imread('image_src/new_template.jpg',0)
     not_answered_template = cv2.imread('image_src/not_answered_template.jpg',0)
-    connecting_template = cv2.imread('image_src/connecting_template.jpg', 0)
+    connecting_template = cv2.imread('image_src/new_template3.jpg', 0)
 
     #List of templates
     templates = [calling_template, ringing_template, not_answered_template, connecting_template]
@@ -34,7 +34,7 @@ def proccess_image(image_path):
         #print ('min_val: ', min_val, ' max_val: ', max_val)
 
         if max_val >= threshold:
-            print 'STATE: ' + switch(index)
+            return ('STATE: ' + switch(index))
 
             #For showing graphical. delete it for real or headless programming
             #++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -54,7 +54,7 @@ def proccess_image(image_path):
 
             break
         else:
-            print('User answered!')
+            return(True)
 
 #Switch function for differs templates in for loop
 def switch(index):
@@ -67,4 +67,4 @@ def switch(index):
 
 
 if __name__ == '__main__':
-    proccess_image('image_src/calling_test.jpg')
+    proccess_image('image_src/new_temp2.jpg')
